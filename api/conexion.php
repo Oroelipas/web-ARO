@@ -20,6 +20,10 @@ class Conexion{
     }
 
 
+    public function lastInsertId(){
+        return $this->pdo->lastInsertId();
+    }
+
 	public function executeSql($query, $params = null){
         $resultSet = null;
         
