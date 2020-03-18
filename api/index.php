@@ -17,6 +17,9 @@ switch($url){
     		nuevoUsuario();
     	}
         break;
+    case "actividades":
+        echo file_get_contents("jsonActividades.json");
+        break;
     default:
         echo "LLamada incorrecta";
 }

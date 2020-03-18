@@ -1,0 +1,78 @@
+{
+    "IdCentro": "0",
+    "FechaInicio": "2020-02-03",
+    "FechaFin": "2020-02-09",
+    "FechaAnterior": "2020-01-27",
+    "FechaSiguiente": "2020-02-10",
+    "FechasAMostrar": [
+        {
+            "fecha": "2020-02-03",
+            "diaSemana": 1
+        },
+        {
+            "fecha": "2020-02-04",
+            "diaSemana": 2
+        },
+        {
+            "fecha": "2020-02-05",
+            "diaSemana": 3
+        },
+        {
+            "fecha": "2020-02-06",
+            "diaSemana": 4
+        },
+        {
+            "fecha": "2020-02-07",
+            "diaSemana": 5
+        },
+        {
+            "fecha": "2020-02-08",
+            "diaSemana": 6
+        },
+        {
+            "fecha": "2020-02-09",
+            "diaSemana": 7
+        }
+    ],
+    "Disponibilidad": [
+        {
+            "IdActividad": 1234,
+            "Fecha": "2020-02-03",
+            "HoraInicio": "18:00:00",
+            "IdMonitor": 0,
+            "IdRecurso": 0
+
+        }
+    ],
+    "Actividades": [
+        {
+            "Id": 1234,
+            "Nombre": "Spinning",
+            "IdCentro": 0
+
+        }
+    ],
+    "Recursos": [
+        {
+            "Id": 0,
+            "Nombre": "SALA 1"
+        }
+    ],
+    "Centros": [
+        {
+            "Id": 0,
+            "Descripcion": "DEPORTES"
+        }
+    ],
+    "TiposActividad": [],
+    "SubtiposActividad": [],
+    "GruposActividad": [],
+    "Monitores": [
+        {
+            "Id": 0,
+            "Nombre": "Javier"
+        }
+    ],
+    "ObjetivosActividad": [],
+    "IntensidadesActividad": []
+}
