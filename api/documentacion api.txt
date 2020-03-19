@@ -1,0 +1,77 @@
+NUEVO USUARIO:
+
+POST: api/nuevousuario
+
+- nombre 
+- email
+- idCarrera 
+- hash 
+- fNacimiento (dd-mm-yyyy)
+- sexo (masculino / femenino)
+
+-----------DEVUELVE-------------
+
+si OK -> IdUser = ID usuario
+si Email usado -> error = 409
+
+{
+	'IdUser': xxx,
+	'error' : xxx
+}
+
+
+-------------------------------------------------------------------------------
+LOGIN:
+
+POST: api/login
+
+- email
+- hash
+
+-----------DEVUELVE-------------
+
+si OK -> IdUser = ID usuario
+si login incorrecto -> error = 404
+
+{
+	'IdUser': xxx,
+	'error' : xxx
+}
+
+---------------------------------------------------------------------------------
+
+ACTIVIDADE:
+
+GET: api/actividades (provisional, después será a la web de la uni)
+
+- fechaInicio: dd-mm-yyyy
+
+-----------DEVUELVE-------------
+
+JSON PARECIDO AL QUE HEMOS PERDIDO
+
+--------------------------------------------------------------------------------
+
+RESERVA ACTIVIDAD:
+
+POST: api/reservar
+
+- IdActividad
+- fecha (dd-mm-yyyy)
+- hora  (hh:mm:ss)
+(Id usuario no necesario porque ya esta guardado en el server con el login)
+
+-----------DEVUELVE-------------
+
+si todo OK -> error = null
+Si actividad no encontrada -> error = -1
+Si usuario no encontrado -> error = -2
+
+{
+	'error' : xxx
+}
+
+---------------------------------------------------------------------------------
+
+
+

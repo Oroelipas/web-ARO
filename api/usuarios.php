@@ -28,9 +28,35 @@ function nuevoUsuario(){
 
 	$db->executeSql($query);
 
-	$result = ["IdUser" => $db->lastInsertId(), "error" => null];
+	$_SESSION["user"] = $db->lastInsertId();
+
+	$result = ["IdUser" => $_SESSION["user"], "error" => null];
 	echo json_encode($result,  JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
 
+}
+
+
+function login(){
+
+	$db = new Conexion();
+
+	$email = $_POST["email"];
+	$hash = $_POST["hash"];
+
+	$query = "SELECT idusuario from usuarios WHERE email = ? and hash = ?";
+	$result = $db->executeSql($query, [$email, $hash]);
+	if(count($result) > 0){
+		$_SESSION["user"] = $result[0]->idusuario;
+		$result = ["IdUser" => $result[0]->idusuario, "error" => null];
+		echo json_encode($result,  JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+	}else{
+		$result = ["IdUser" => null, "error" => 404];
+		echo json_encode($result,  JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+	}
+}
+
+function logout(){
+	unset($_SESSION["user"]);
 }
 
 
