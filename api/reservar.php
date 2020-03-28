@@ -31,7 +31,7 @@ function reservar(){
 	$idActividad = $_POST["IdActividad"];
 	$fecha = $_POST["fecha"];
 	$hora = $_POST["hora"];
-	$idUser = $_SESSION["user"];
+	$idUser = $_POST["idUsuario"];
 
 	$diaSemana =  diaSemana(date("w", strtotime($fecha)));
 	$fecha =  date("Y-m-d", strtotime($fecha));
@@ -40,7 +40,7 @@ function reservar(){
 	$query = "SELECT * from reservas WHERE idusuario = ? and idactividad = ?  and fecha = ? and hora = ? and diasemana = ?";
 	$result = $db->executeSql($query, [$idUser, $idActividad, $fecha, $hora, $diaSemana]);
 	if(count($result) > 0){
-		$result = ["error" => 409];
+		$result = ["idReserva"=> null, "error" => 409];
 		echo json_encode($result,  JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
 		return;
 	}
@@ -51,7 +51,9 @@ function reservar(){
 
 	$db->executeSql($query);
 
-	$result = ["error" => null];
+	$idReserva = $db->lastInsertId();
+
+	$result = ["idReserva" => $idReserva, "error" => null];
 	echo json_encode($result,  JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
 
 }

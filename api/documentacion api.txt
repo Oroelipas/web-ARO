@@ -59,13 +59,16 @@ POST: api/reservar
 - IdActividad
 - fecha (dd-mm-yyyy)
 - hora  (hh:mm:ss)
+- idUsuario
+
 (Id usuario no necesario porque ya esta guardado en el server con el login)
 
 -----------DEVUELVE-------------
 
-si todo OK -> error = null
-Si actividad no encontrada -> error = -1
-Si usuario no encontrado -> error = -2
+si todo OK -> [idReserva = id_nueva_reserva, error = null]
+si reserva ya existente -> error = 409
+Si actividad no encontrada -> error = 4041
+Si usuario no encontrado -> error = 4042
 
 {
 	'error' : xxx
@@ -73,5 +76,9 @@ Si usuario no encontrado -> error = -2
 
 ---------------------------------------------------------------------------------
 
+ANULAR RESERVA:
 
+POST: api/anular
+
+- 
 
