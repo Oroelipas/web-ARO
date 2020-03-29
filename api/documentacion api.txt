@@ -5,7 +5,7 @@ POST: api/nuevousuario
 - nombre 
 - email
 - idCarrera 
-- hash 
+- password 
 - fNacimiento (dd-mm-yyyy)
 - sexo (masculino / femenino)
 
@@ -26,7 +26,7 @@ LOGIN:
 POST: api/login
 
 - email
-- hash
+- password
 
 -----------DEVUELVE-------------
 
@@ -71,6 +71,7 @@ Si actividad no encontrada -> error = 4041
 Si usuario no encontrado -> error = 4042
 
 {
+	"idReserva": xxx,
 	'error' : xxx
 }
 
@@ -80,5 +81,54 @@ ANULAR RESERVA:
 
 POST: api/anular
 
-- 
+- IdReserva
+- idUsuario
 
+-----------DEVUELVE-------------
+
+si todo OK -> [error = null]
+si reserva no existe o no pertenece a ese usuario -> [error = 404]
+
+{
+	'error' : xxx
+}
+
+
+---------------------------------------------------------------------------------
+
+GET RESERVAS:
+
+POST: api/misReservas
+
+- idUsuario
+
+-----------DEVUELVE-------------
+
+Algo asi:
+
+[
+	{
+		'idReserva'   : xxx,
+		'idActividad' : xxx,
+		'hora'        : 'hh:mm:ss',
+		'diaSemana'   : ['L','M','X','J','V'],
+		'fecha'       : 'dd-mm-yyyy',
+		'nombre'      :'abcd'
+	},
+	{
+		'idReserva'   : xxx,
+		'idActividad' : xxx,
+		'hora'        : 'hh:mm:ss',
+		'diaSemana'   : ['L','M','X','J','V'],
+		'fecha'       : 'dd-mm-yyyy',
+		'nombre'      :'abcd'
+	},
+	{
+		'idReserva'   : xxx,
+		'idActividad' : xxx,
+		'hora'        : 'hh:mm:ss',
+		'diaSemana'   : ['L','M','X','J','V'],
+		'fecha'       : 'dd-mm-yyyy',
+		'nombre'      :'abcd'
+	}
+]
