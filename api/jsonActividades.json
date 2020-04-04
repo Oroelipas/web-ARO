@@ -1,43 +1,43 @@
 {
     "IdCentro": "0",
-    "FechaInicio": "2020-02-03",
-    "FechaFin": "2020-02-09",
-    "FechaAnterior": "2020-01-27",
-    "FechaSiguiente": "2020-02-10",
+    "FechaInicio": "##DIA1##",
+    "FechaFin": "##DIA7##",
+    "FechaAnterior": "##FECHAANTERIOR##",
+    "FechaSiguiente": "##FECHASIGUIENTE##",
     "FechasAMostrar": [
         {
-            "fecha": "2020-02-03",
+            "fecha": "##DIA1##",
             "diaSemana": 1
         },
         {
-            "fecha": "2020-02-04",
+            "fecha": "##DIA2##",
             "diaSemana": 2
         },
         {
-            "fecha": "2020-02-05",
+            "fecha": "##DIA3##",
             "diaSemana": 3
         },
         {
-            "fecha": "2020-02-06",
+            "fecha": "##DIA4##",
             "diaSemana": 4
         },
         {
-            "fecha": "2020-02-07",
+            "fecha": "##DIA5##",
             "diaSemana": 5
         },
         {
-            "fecha": "2020-02-08",
+            "fecha": "##DIA6##",
             "diaSemana": 6
         },
         {
-            "fecha": "2020-02-09",
+            "fecha": "##DIA7##",
             "diaSemana": 7
         }
     ],
     "Disponibilidad": [
         {
             "IdActividad": 2664,
-            "Fecha": "2020-02-03",
+            "Fecha": "##DIA1##",
             "HoraInicio": "07:35:00",
             "HoraFin": "08:05:00",
             "IdRecurso": 13,
@@ -50,7 +50,7 @@
         },
         {
             "IdActividad": 2666,
-            "Fecha": "2020-02-03",
+            "Fecha": "##DIA1##",
             "HoraInicio": "08:10:00",
             "HoraFin": "08:40:00",
             "IdRecurso": 14,
@@ -63,7 +63,7 @@
         },
         {
             "IdActividad": 2667,
-            "Fecha": "2020-02-03",
+            "Fecha": "##DIA1##",
             "HoraInicio": "09:00:00",
             "HoraFin": "10:00:00",
             "IdRecurso": 8,
@@ -76,7 +76,7 @@
         },
         {
             "IdActividad": 2670,
-            "Fecha": "2020-02-03",
+            "Fecha": "##DIA1##",
             "HoraInicio": "12:00:00",
             "HoraFin": "13:00:00",
             "IdRecurso": 14,
@@ -89,7 +89,7 @@
         },
         {
             "IdActividad": 2672,
-            "Fecha": "2020-02-03",
+            "Fecha": "##DIA1##",
             "HoraInicio": "14:10:00",
             "HoraFin": "15:10:00",
             "IdRecurso": 8,
@@ -102,7 +102,7 @@
         },
         {
             "IdActividad": 2671,
-            "Fecha": "2020-02-03",
+            "Fecha": "##DIA1##",
             "HoraInicio": "15:00:00",
             "HoraFin": "16:00:00",
             "IdRecurso": 10,
@@ -115,7 +115,7 @@
         },
         {
             "IdActividad": 2707,
-            "Fecha": "2020-02-03",
+            "Fecha": "##DIA1##",
             "HoraInicio": "15:10:00",
             "HoraFin": "16:10:00",
             "IdRecurso": 8,
@@ -128,7 +128,7 @@
         },
         {
             "IdActividad": 2665,
-            "Fecha": "2020-02-03",
+            "Fecha": "##DIA1##",
             "HoraInicio": "16:00:00",
             "HoraFin": "17:00:00",
             "IdRecurso": 13,
@@ -141,7 +141,7 @@
         },
         {
             "IdActividad": 2680,
-            "Fecha": "2020-02-03",
+            "Fecha": "##DIA1##",
             "HoraInicio": "18:00:00",
             "HoraFin": "19:00:00",
             "IdRecurso": 14,
@@ -154,7 +154,7 @@
         },
         {
             "IdActividad": 2672,
-            "Fecha": "2020-02-03",
+            "Fecha": "##DIA1##",
             "HoraInicio": "19:00:00",
             "HoraFin": "20:00:00",
             "IdRecurso": 8,
@@ -167,7 +167,7 @@
         },
         {
             "IdActividad": 2725,
-            "Fecha": "2020-02-03",
+            "Fecha": "##DIA1##",
             "HoraInicio": "19:00:00",
             "HoraFin": "20:00:00",
             "IdRecurso": 10,
@@ -180,7 +180,7 @@
         },
         {
             "IdActividad": 2673,
-            "Fecha": "2020-02-03",
+            "Fecha": "##DIA1##",
             "HoraInicio": "19:00:00",
             "HoraFin": "20:00:00",
             "IdRecurso": 14,
@@ -193,7 +193,7 @@
         },
         {
             "IdActividad": 2668,
-            "Fecha": "2020-02-03",
+            "Fecha": "##DIA1##",
             "HoraInicio": "20:00:00",
             "HoraFin": "21:00:00",
             "IdRecurso": 8,
@@ -206,7 +206,7 @@
         },
         {
             "IdActividad": 2674,
-            "Fecha": "2020-02-03",
+            "Fecha": "##DIA1##",
             "HoraInicio": "20:00:00",
             "HoraFin": "21:00:00",
             "IdRecurso": 14,
@@ -219,7 +219,7 @@
         },
         {
             "IdActividad": 2676,
-            "Fecha": "2020-02-03",
+            "Fecha": "##DIA1##",
             "HoraInicio": "21:00:00",
             "HoraFin": "22:00:00",
             "IdRecurso": 8,
@@ -232,7 +232,7 @@
         },
         {
             "IdActividad": 2665,
-            "Fecha": "2020-02-03",
+            "Fecha": "##DIA1##",
             "HoraInicio": "21:00:00",
             "HoraFin": "22:00:00",
             "IdRecurso": 13,
@@ -245,7 +245,7 @@
         },
         {
             "IdActividad": 2675,
-            "Fecha": "2020-02-03",
+            "Fecha": "##DIA1##",
             "HoraInicio": "21:00:00",
             "HoraFin": "22:00:00",
             "IdRecurso": 15,
@@ -258,7 +258,7 @@
         },
         {
             "IdActividad": 2665,
-            "Fecha": "2020-02-04",
+            "Fecha": "##DIA2##",
             "HoraInicio": "07:40:00",
             "HoraFin": "08:40:00",
             "IdRecurso": 13,
@@ -271,7 +271,7 @@
         },
         {
             "IdActividad": 2669,
-            "Fecha": "2020-02-04",
+            "Fecha": "##DIA2##",
             "HoraInicio": "09:00:00",
             "HoraFin": "10:00:00",
             "IdRecurso": 10,
@@ -284,7 +284,7 @@
         },
         {
             "IdActividad": 2678,
-            "Fecha": "2020-02-04",
+            "Fecha": "##DIA2##",
             "HoraInicio": "09:00:00",
             "HoraFin": "10:00:00",
             "IdRecurso": 15,
@@ -297,7 +297,7 @@
         },
         {
             "IdActividad": 2680,
-            "Fecha": "2020-02-04",
+            "Fecha": "##DIA2##",
             "HoraInicio": "13:15:00",
             "HoraFin": "14:15:00",
             "IdRecurso": 14,
@@ -310,7 +310,7 @@
         },
         {
             "IdActividad": 2679,
-            "Fecha": "2020-02-04",
+            "Fecha": "##DIA2##",
             "HoraInicio": "14:15:00",
             "HoraFin": "15:15:00",
             "IdRecurso": 3,
@@ -323,7 +323,7 @@
         },
         {
             "IdActividad": 2667,
-            "Fecha": "2020-02-04",
+            "Fecha": "##DIA2##",
             "HoraInicio": "18:00:00",
             "HoraFin": "19:00:00",
             "IdRecurso": 8,
@@ -336,7 +336,7 @@
         },
         {
             "IdActividad": 2672,
-            "Fecha": "2020-02-04",
+            "Fecha": "##DIA2##",
             "HoraInicio": "19:00:00",
             "HoraFin": "20:00:00",
             "IdRecurso": 8,
@@ -349,7 +349,7 @@
         },
         {
             "IdActividad": 2681,
-            "Fecha": "2020-02-04",
+            "Fecha": "##DIA2##",
             "HoraInicio": "19:00:00",
             "HoraFin": "20:00:00",
             "IdRecurso": 10,
@@ -362,7 +362,7 @@
         },
         {
             "IdActividad": 2670,
-            "Fecha": "2020-02-04",
+            "Fecha": "##DIA2##",
             "HoraInicio": "19:00:00",
             "HoraFin": "20:00:00",
             "IdRecurso": 14,
@@ -375,7 +375,7 @@
         },
         {
             "IdActividad": 2671,
-            "Fecha": "2020-02-04",
+            "Fecha": "##DIA2##",
             "HoraInicio": "20:00:00",
             "HoraFin": "21:00:00",
             "IdRecurso": 8,
@@ -388,7 +388,7 @@
         },
         {
             "IdActividad": 2719,
-            "Fecha": "2020-02-04",
+            "Fecha": "##DIA2##",
             "HoraInicio": "20:00:00",
             "HoraFin": "21:00:00",
             "IdRecurso": 10,
@@ -401,7 +401,7 @@
         },
         {
             "IdActividad": 2678,
-            "Fecha": "2020-02-04",
+            "Fecha": "##DIA2##",
             "HoraInicio": "20:00:00",
             "HoraFin": "21:00:00",
             "IdRecurso": 14,
@@ -414,7 +414,7 @@
         },
         {
             "IdActividad": 2672,
-            "Fecha": "2020-02-04",
+            "Fecha": "##DIA2##",
             "HoraInicio": "21:00:00",
             "HoraFin": "22:00:00",
             "IdRecurso": 8,
@@ -427,7 +427,7 @@
         },
         {
             "IdActividad": 2665,
-            "Fecha": "2020-02-04",
+            "Fecha": "##DIA2##",
             "HoraInicio": "21:00:00",
             "HoraFin": "22:00:00",
             "IdRecurso": 13,
@@ -440,7 +440,7 @@
         },
         {
             "IdActividad": 2675,
-            "Fecha": "2020-02-04",
+            "Fecha": "##DIA2##",
             "HoraInicio": "21:00:00",
             "HoraFin": "22:00:00",
             "IdRecurso": 15,
@@ -453,7 +453,7 @@
         },
         {
             "IdActividad": 2668,
-            "Fecha": "2020-02-05",
+            "Fecha": "##DIA3##",
             "HoraInicio": "07:40:00",
             "HoraFin": "08:40:00",
             "IdRecurso": 10,
@@ -466,7 +466,7 @@
         },
         {
             "IdActividad": 2675,
-            "Fecha": "2020-02-05",
+            "Fecha": "##DIA3##",
             "HoraInicio": "08:00:00",
             "HoraFin": "09:00:00",
             "IdRecurso": 15,
@@ -479,7 +479,7 @@
         },
         {
             "IdActividad": 2667,
-            "Fecha": "2020-02-05",
+            "Fecha": "##DIA3##",
             "HoraInicio": "09:00:00",
             "HoraFin": "10:00:00",
             "IdRecurso": 8,
@@ -492,7 +492,7 @@
         },
         {
             "IdActividad": 2670,
-            "Fecha": "2020-02-05",
+            "Fecha": "##DIA3##",
             "HoraInicio": "12:00:00",
             "HoraFin": "13:00:00",
             "IdRecurso": 14,
@@ -505,7 +505,7 @@
         },
         {
             "IdActividad": 2672,
-            "Fecha": "2020-02-05",
+            "Fecha": "##DIA3##",
             "HoraInicio": "14:10:00",
             "HoraFin": "15:10:00",
             "IdRecurso": 8,
@@ -518,7 +518,7 @@
         },
         {
             "IdActividad": 2671,
-            "Fecha": "2020-02-05",
+            "Fecha": "##DIA3##",
             "HoraInicio": "15:00:00",
             "HoraFin": "16:00:00",
             "IdRecurso": 10,
@@ -531,7 +531,7 @@
         },
         {
             "IdActividad": 2707,
-            "Fecha": "2020-02-05",
+            "Fecha": "##DIA3##",
             "HoraInicio": "15:10:00",
             "HoraFin": "16:10:00",
             "IdRecurso": 8,
@@ -544,7 +544,7 @@
         },
         {
             "IdActividad": 2665,
-            "Fecha": "2020-02-05",
+            "Fecha": "##DIA3##",
             "HoraInicio": "16:00:00",
             "HoraFin": "17:00:00",
             "IdRecurso": 13,
@@ -557,7 +557,7 @@
         },
         {
             "IdActividad": 2680,
-            "Fecha": "2020-02-05",
+            "Fecha": "##DIA3##",
             "HoraInicio": "18:00:00",
             "HoraFin": "19:00:00",
             "IdRecurso": 14,
@@ -570,7 +570,7 @@
         },
         {
             "IdActividad": 2672,
-            "Fecha": "2020-02-05",
+            "Fecha": "##DIA3##",
             "HoraInicio": "19:00:00",
             "HoraFin": "20:00:00",
             "IdRecurso": 8,
@@ -583,7 +583,7 @@
         },
         {
             "IdActividad": 2725,
-            "Fecha": "2020-02-05",
+            "Fecha": "##DIA3##",
             "HoraInicio": "19:00:00",
             "HoraFin": "20:00:00",
             "IdRecurso": 10,
@@ -596,7 +596,7 @@
         },
         {
             "IdActividad": 2673,
-            "Fecha": "2020-02-05",
+            "Fecha": "##DIA3##",
             "HoraInicio": "19:00:00",
             "HoraFin": "20:00:00",
             "IdRecurso": 14,
@@ -609,7 +609,7 @@
         },
         {
             "IdActividad": 2668,
-            "Fecha": "2020-02-05",
+            "Fecha": "##DIA3##",
             "HoraInicio": "20:00:00",
             "HoraFin": "21:00:00",
             "IdRecurso": 8,
@@ -622,7 +622,7 @@
         },
         {
             "IdActividad": 2674,
-            "Fecha": "2020-02-05",
+            "Fecha": "##DIA3##",
             "HoraInicio": "20:00:00",
             "HoraFin": "21:00:00",
             "IdRecurso": 14,
@@ -635,7 +635,7 @@
         },
         {
             "IdActividad": 2676,
-            "Fecha": "2020-02-05",
+            "Fecha": "##DIA3##",
             "HoraInicio": "21:00:00",
             "HoraFin": "22:00:00",
             "IdRecurso": 8,
@@ -648,7 +648,7 @@
         },
         {
             "IdActividad": 2665,
-            "Fecha": "2020-02-05",
+            "Fecha": "##DIA3##",
             "HoraInicio": "21:00:00",
             "HoraFin": "22:00:00",
             "IdRecurso": 13,
@@ -661,7 +661,7 @@
         },
         {
             "IdActividad": 2675,
-            "Fecha": "2020-02-05",
+            "Fecha": "##DIA3##",
             "HoraInicio": "21:00:00",
             "HoraFin": "22:00:00",
             "IdRecurso": 15,
@@ -674,7 +674,7 @@
         },
         {
             "IdActividad": 2665,
-            "Fecha": "2020-02-06",
+            "Fecha": "##DIA4##",
             "HoraInicio": "07:40:00",
             "HoraFin": "08:40:00",
             "IdRecurso": 13,
@@ -687,7 +687,7 @@
         },
         {
             "IdActividad": 2669,
-            "Fecha": "2020-02-06",
+            "Fecha": "##DIA4##",
             "HoraInicio": "09:00:00",
             "HoraFin": "10:00:00",
             "IdRecurso": 10,
@@ -700,7 +700,7 @@
         },
         {
             "IdActividad": 2678,
-            "Fecha": "2020-02-06",
+            "Fecha": "##DIA4##",
             "HoraInicio": "09:00:00",
             "HoraFin": "10:00:00",
             "IdRecurso": 15,
@@ -713,7 +713,7 @@
         },
         {
             "IdActividad": 2680,
-            "Fecha": "2020-02-06",
+            "Fecha": "##DIA4##",
             "HoraInicio": "13:15:00",
             "HoraFin": "14:15:00",
             "IdRecurso": 14,
@@ -726,7 +726,7 @@
         },
         {
             "IdActividad": 2679,
-            "Fecha": "2020-02-06",
+            "Fecha": "##DIA4##",
             "HoraInicio": "14:15:00",
             "HoraFin": "15:15:00",
             "IdRecurso": 3,
@@ -739,7 +739,7 @@
         },
         {
             "IdActividad": 2667,
-            "Fecha": "2020-02-06",
+            "Fecha": "##DIA4##",
             "HoraInicio": "18:00:00",
             "HoraFin": "19:00:00",
             "IdRecurso": 8,
@@ -752,7 +752,7 @@
         },
         {
             "IdActividad": 2671,
-            "Fecha": "2020-02-06",
+            "Fecha": "##DIA4##",
             "HoraInicio": "19:00:00",
             "HoraFin": "20:00:00",
             "IdRecurso": 8,
@@ -765,7 +765,7 @@
         },
         {
             "IdActividad": 2681,
-            "Fecha": "2020-02-06",
+            "Fecha": "##DIA4##",
             "HoraInicio": "19:00:00",
             "HoraFin": "20:00:00",
             "IdRecurso": 10,
@@ -778,7 +778,7 @@
         },
         {
             "IdActividad": 2670,
-            "Fecha": "2020-02-06",
+            "Fecha": "##DIA4##",
             "HoraInicio": "19:00:00",
             "HoraFin": "20:00:00",
             "IdRecurso": 14,
@@ -791,7 +791,7 @@
         },
         {
             "IdActividad": 2672,
-            "Fecha": "2020-02-06",
+            "Fecha": "##DIA4##",
             "HoraInicio": "20:00:00",
             "HoraFin": "21:00:00",
             "IdRecurso": 8,
@@ -804,7 +804,7 @@
         },
         {
             "IdActividad": 2719,
-            "Fecha": "2020-02-06",
+            "Fecha": "##DIA4##",
             "HoraInicio": "20:00:00",
             "HoraFin": "21:00:00",
             "IdRecurso": 10,
@@ -817,7 +817,7 @@
         },
         {
             "IdActividad": 2678,
-            "Fecha": "2020-02-06",
+            "Fecha": "##DIA4##",
             "HoraInicio": "20:00:00",
             "HoraFin": "21:00:00",
             "IdRecurso": 14,
@@ -830,7 +830,7 @@
         },
         {
             "IdActividad": 2671,
-            "Fecha": "2020-02-06",
+            "Fecha": "##DIA4##",
             "HoraInicio": "21:00:00",
             "HoraFin": "22:00:00",
             "IdRecurso": 8,
@@ -843,7 +843,7 @@
         },
         {
             "IdActividad": 2665,
-            "Fecha": "2020-02-06",
+            "Fecha": "##DIA4##",
             "HoraInicio": "21:00:00",
             "HoraFin": "22:00:00",
             "IdRecurso": 13,
@@ -856,7 +856,7 @@
         },
         {
             "IdActividad": 2675,
-            "Fecha": "2020-02-06",
+            "Fecha": "##DIA4##",
             "HoraInicio": "21:00:00",
             "HoraFin": "22:00:00",
             "IdRecurso": 15,
@@ -869,7 +869,7 @@
         },
         {
             "IdActividad": 2671,
-            "Fecha": "2020-02-07",
+            "Fecha": "##DIA5##",
             "HoraInicio": "07:40:00",
             "HoraFin": "08:40:00",
             "IdRecurso": 8,
@@ -882,7 +882,7 @@
         },
         {
             "IdActividad": 2675,
-            "Fecha": "2020-02-07",
+            "Fecha": "##DIA5##",
             "HoraInicio": "08:00:00",
             "HoraFin": "09:00:00",
             "IdRecurso": 14,
@@ -895,7 +895,7 @@
         },
         {
             "IdActividad": 2670,
-            "Fecha": "2020-02-07",
+            "Fecha": "##DIA5##",
             "HoraInicio": "12:00:00",
             "HoraFin": "13:00:00",
             "IdRecurso": 14,
@@ -908,7 +908,7 @@
         },
         {
             "IdActividad": 2677,
-            "Fecha": "2020-02-07",
+            "Fecha": "##DIA5##",
             "HoraInicio": "18:00:00",
             "HoraFin": "19:00:00",
             "IdRecurso": 8,

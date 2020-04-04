@@ -3,6 +3,7 @@ include "conexion.php";
 include "carreras.php";
 include "usuarios.php";
 include "reservas.php";
+include "actividades.php";
 
 session_start();
 
@@ -42,7 +43,9 @@ switch($url){
         }
         break;
     case "actividades":
-        echo file_get_contents("jsonActividades.json");
+        if($verb == "POST"){
+            getActividades();
+        }        
         break;
     default:
         echo "LLamada incorrecta";
