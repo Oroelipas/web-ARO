@@ -120,9 +120,8 @@ function misReservas(){
 			  		NOW() < CONCAT(r.fecha, ' ', r.hora)";
 
 
+	/*
 	/// APAÑO PARA QUE SIMULE ESTAR SIEMPRE EN LA UNICA SEMANA EN LA QUE TENEMOS DATOS Y RESERVAS: 03/02/2020 - 07-02-2020
-
-
 	$diaSemana = date("w");
 	// $diaFake = dia de febrero en el que simularemos estar
 	switch ($diaSemana) {
@@ -146,9 +145,7 @@ function misReservas(){
 			$diaFake = '2020-02-02'; // para que si estamos en fin de semana nos devuelva todas las de la semana siguiente
 			break;
 	}
-
 	$dateFake = $diaFake ." ". date("H:i:s");
-
 	$query = "SELECT r.idReserva, a.idactividad, a.hora, a.diasemana, r.fecha, a.nombre  
 			  FROM reservas r, actividades a 
 			  WHERE r.idusuario = ? and 
@@ -158,7 +155,7 @@ function misReservas(){
 			  		'".$dateFake."' < CONCAT(r.fecha, ' ', r.hora)";
 
 	///////////////////////////////////////////////////////////////////////////////////////////////////////
-
+	*/
 
 	$result = $db->executeSql($query, [$idUser]);
 	echo json_encode($result,  JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
