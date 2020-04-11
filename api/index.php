@@ -51,7 +51,17 @@ switch($url){
         if($verb == "POST"){
             nuevaReservaSemanal();
         }        
-        break;        
+        break;   
+    case "anularreservasemanal":
+        if($verb == "POST"){
+            anularReservaSemanal();
+        }        
+        break;
+    case "misreservassemanales":
+        if($verb == "POST"){
+            misReservasSemanales();
+        }        
+        break;    
     default:
         echo "LLamada incorrecta";
 }

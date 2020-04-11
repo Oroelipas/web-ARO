@@ -1546,113 +1546,113 @@
         }
     ],
     "Monitores": [
-        {
+{
             "Id": 5205,
-            "Nombre": "T-INNOVA",
+            "Nombre": "T-Innova",
             "Apellido1": "",
             "Sexo": 1
         },
         {
             "Id": 6042,
-            "Nombre": "JAVIER",
-            "Apellido1": "ESCRIBANO",
-            "Apellido2": "SANTAMARIA",
+            "Nombre": "Javier",
+            "Apellido1": "Escribano",
+            "Apellido2": "Santamaria",
             "Sexo": 1
         },
         {
             "Id": 6097,
-            "Nombre": "PERU",
-            "Apellido1": "ESTEBAN",
-            "Apellido2": "ESPARZA",
+            "Nombre": "Peru",
+            "Apellido1": "Esteban",
+            "Apellido2": "Esparza",
             "Sexo": 1
         },
         {
             "Id": 11930,
-            "Nombre": "JESSICA",
-            "Apellido1": "MATEO",
-            "Apellido2": "PEREZ",
+            "Nombre": "Jessica",
+            "Apellido1": "Mateo",
+            "Apellido2": "Perez",
             "Sexo": 2
         },
         {
             "Id": 11945,
-            "Nombre": "ANA ISABEL",
-            "Apellido1": "HERRANZ",
-            "Apellido2": "GARCIA",
+            "Nombre": "Ana Isabel",
+            "Apellido1": "Herranz",
+            "Apellido2": "Garcia",
             "Sexo": 2
         },
         {
             "Id": 17145,
-            "Nombre": "MIRIAM ",
-            "Apellido1": "INSAUSTI",
-            "Apellido2": "ARDANAZ",
+            "Nombre": "Miriam",
+            "Apellido1": "Insausti",
+            "Apellido2": "Ardanaz",
             "Sexo": 1
         },
         {
             "Id": 18853,
-            "Nombre": "LUIS FRANCISCO",
-            "Apellido1": "BAUTISTA",
-            "Apellido2": "ROJAS",
+            "Nombre": "Luis Francisco",
+            "Apellido1": "Bautista",
+            "Apellido2": "Rojas",
             "Sexo": 1
         },
         {
             "Id": 22685,
-            "Nombre": "PEDRO",
-            "Apellido1": "LATASA",
-            "Apellido2": "LOPEZ",
+            "Nombre": "Pedro",
+            "Apellido1": "Latasa",
+            "Apellido2": "Lopez",
             "Sexo": 1
         },
         {
             "Id": 23166,
-            "Nombre": "HODEI",
-            "Apellido1": "SARASA",
-            "Apellido2": "CAMACHO",
+            "Nombre": "Hodei",
+            "Apellido1": "Sarasa",
+            "Apellido2": "Camacho",
             "Sexo": 1
         },
         {
             "Id": 23362,
-            "Nombre": "GABRIELLA ",
-            "Apellido1": "DE RINALDIS",
+            "Nombre": "Gabriella",
+            "Apellido1": "De Rinaldis",
             "Sexo": 1
         },
         {
             "Id": 23596,
-            "Nombre": "IRANZU",
-            "Apellido1": "DEL VALLE",
-            "Apellido2": "DE MIGUEL",
+            "Nombre": "Iranzu",
+            "Apellido1": "Del Valle",
+            "Apellido2": "De Miguel",
             "Sexo": 1
         },
         {
             "Id": 24197,
-            "Nombre": "JUAN JOSE",
-            "Apellido1": "ARMAÑANZAS",
-            "Apellido2": "LES",
+            "Nombre": "Juan Jose",
+            "Apellido1": "Armañanzas",
+            "Apellido2": "Les",
             "Sexo": 1
         },
         {
             "Id": 24280,
-            "Nombre": "RICARDO",
-            "Apellido1": "ARIZCUREN",
-            "Apellido2": "ROMERO",
+            "Nombre": "Ricardo",
+            "Apellido1": "Arizcuren",
+            "Apellido2": "Romero",
             "Sexo": 1
         },
         {
             "Id": 24389,
-            "Nombre": "SEDENA",
+            "Nombre": "Sedena",
             "Apellido1": "",
             "Sexo": 1
         },
         {
             "Id": 25516,
-            "Nombre": "IRATI",
-            "Apellido1": "DEL VALLE",
-            "Apellido2": "DE MIGUEL",
+            "Nombre": "Irati",
+            "Apellido1": "Del Valle",
+            "Apellido2": "De Miguel",
             "Sexo": 1
         },
         {
             "Id": 26238,
-            "Nombre": "LEYRE",
-            "Apellido1": "FERNANDEZ",
-            "Apellido2": "ESCOBEDO",
+            "Nombre": "Leyre",
+            "Apellido1": "Fernandez",
+            "Apellido2": "Escobedo",
             "Sexo": 1
         }
     ],

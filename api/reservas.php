@@ -28,15 +28,13 @@ function reservar(){
 
 	$db = new Conexion();
 
-	$idActividad = $_POST["IdActividad"];
+	$idActividad = $_POST["idActividad"];
 	$fecha = $_POST["fecha"];
 	$hora = $_POST["hora"];
 	$idUser = $_POST["idUsuario"];
 
 	$diaSemana =  diaSemana(date("w", strtotime($fecha)));
 	$fecha =  date("Y-m-d", strtotime($fecha));
-
-	// AQUI NO SE CHECKEA QUE EL DIA DE LA RESERVA SEA EL DIA DE LA SEMANA DE LA RESERVA!!!!!!!!!!!!!!!!!!!
 
 	// Checkear que la reserva no esta hecha
 	$query = "SELECT * from reservas WHERE idusuario = ? and idactividad = ?  and fecha = ? and hora = ? and diasemana = ?";
@@ -86,7 +84,7 @@ function anular(){
 
 	$db = new Conexion();
 
-	$IdReserva = $_POST["IdReserva"];
+	$IdReserva = $_POST["idReserva"];
 	$idUser = $_POST["idUsuario"];
 
 
@@ -133,7 +131,7 @@ function nuevaReservaSemanal(){
 
 	$db = new Conexion();
 
-	$idActividad = $_POST["IdActividad"];
+	$idActividad = $_POST["idActividad"];
 	$diaSemana = $_POST["diaSemana"];
 	$hora = $_POST["hora"];
 	$idUser = $_POST["idUsuario"];
@@ -179,6 +177,55 @@ function nuevaReservaSemanal(){
 
 	$result = ["idReservaSemanal" => $idReserva, "error" => null];
 	echo json_encode($result,  JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+
+}
+
+
+function anularReservaSemanal(){
+
+	$db = new Conexion();
+
+	$IdReserva = $_POST["idReservaSemanal"];
+	$idUser = $_POST["idUsuario"];
+
+
+	// Checkear que la reserva exista y sea de ese usuario
+	$query = "SELECT * from reservas_programadas WHERE idreservaprogramada = ? and idusuario = ?";
+	$result = $db->executeSql($query, [$IdReserva, $idUser]);
+	if(count($result) == 0){
+		$result = ["error" => 404];
+		echo json_encode($result,  JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+		return;
+	}
+
+
+	$query = "DELETE FROM reservas_programadas WHERE idreservaprogramada = ? and idusuario = ?";
+	$db->executeSql($query, [$IdReserva, $idUser]);
+	$result = ["error" => null];
+	echo json_encode($result,  JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+
+}
+
+
+
+
+function misReservasSemanales(){
+
+	$db = new Conexion();
+
+	$idUser = $_POST["idUsuario"];
+
+	$query = "SELECT r.idreservaprogramada, a.idactividad, a.hora, a.horaFin, a.diasemana, a.nombre,  m.nombre as monitor
+			  FROM reservas_programadas r, actividades a, monitores m
+			  WHERE r.idusuario = ? and 
+			  		r.idactividad = a.idactividad and
+			  		r.hora = a.hora and
+			  		r.diasemana = a.diasemana and 
+			  		m.idmonitor = a.idmonitor";
+
+	$result = $db->executeSql($query, [$idUser]);
+	echo json_encode($result,  JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+	return;
 
 }
 

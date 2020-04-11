@@ -38,7 +38,7 @@ si login incorrecto -> error = 404
 	'error' : xxx
 }
 
----------------------------------------------------------------------------------
+----------------------------------------------------------------------------------
 
 ACTIVIDADE:
 
@@ -50,7 +50,7 @@ GET: api/actividades (provisional, después será a la web de la uni)
 
 JSON PARECIDO AL QUE HEMOS PERDIDO
 
---------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
 
 RESERVA ACTIVIDAD:
 
@@ -73,7 +73,7 @@ Si usuario no encontrado -> error = 4042
 	'error' : xxx
 }
 
----------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------
 
 ANULAR RESERVA:
 
@@ -92,7 +92,7 @@ si reserva no existe o no pertenece a ese usuario -> [error = 404]
 }
 
 
----------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------
 
 GET RESERVAS:
 
@@ -147,3 +147,51 @@ si 	usuario no encontrado -> error = 4042
 
 Esta llamada no afecta a las reservas puntuales aunque sean de la misma actividad
 
+---------------------------------------------------------------------------------------
+
+CANCELAR RESERVA SEMANAL 
+
+POST: api/cancelarReservaSemanal
+
+-idReservaSemanal
+-idUsuario
+
+-----------DEVUELVE-------------
+
+si todo ok -> {error = null}
+si reserva no existe o no pertenece a ese usuario -> {error = 404}
+
+-----------------------------------------------------------------------------------------
+
+GET RESERVAS SEMANALES:
+
+POST: api/misReservasSemanales
+
+- idUsuario
+
+-----------DEVUELVE-------------
+
+Algo asi:
+
+[
+	{
+		'idreservaprogramada'   : xxx,
+		'idActividad' : xxx,
+		'hora'        : 'hh:mm:ss',
+		'horaFin'     : 'hh:mm:ss',
+		'diaSemana'   : ['L','M','X','J','V'],
+		'nombre'      :'abcd',
+		'monitor'     :'pepe'
+	},
+	{
+		'idreservaprogramada'   : xxx,
+		'idActividad' : xxx,
+		'hora'        : 'hh:mm:ss',
+		'horaFin'     : 'hh:mm:ss',
+		'diaSemana'   : ['L','M','X','J','V'],
+		'nombre'      :'abcd',
+		'monitor'     :'pepe'
+	}
+]
+
+---------------------------------------------------------------------------------------
