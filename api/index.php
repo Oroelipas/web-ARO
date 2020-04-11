@@ -47,6 +47,11 @@ switch($url){
             getActividades();
         }        
         break;
+    case "nuevareservasemanal":
+        if($verb == "POST"){
+            nuevaReservaSemanal();
+        }        
+        break;        
     default:
         echo "LLamada incorrecta";
 }

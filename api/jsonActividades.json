@@ -1549,6 +1549,7 @@
         {
             "Id": 5205,
             "Nombre": "T-INNOVA",
+            "Apellido1": "",
             "Sexo": 1
         },
         {
@@ -1637,7 +1638,7 @@
         {
             "Id": 24389,
             "Nombre": "SEDENA",
-            "Apellido1": "ACTIVIDADES PUNTUALES",
+            "Apellido1": "",
             "Sexo": 1
         },
         {

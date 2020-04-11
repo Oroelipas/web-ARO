@@ -61,8 +61,6 @@ POST: api/reservar
 - hora  (hh:mm:ss)
 - idUsuario
 
-(Id usuario no necesario porque ya esta guardado en el server con el login)
-
 -----------DEVUELVE-------------
 
 si todo OK -> [idReserva = id_nueva_reserva, error = null]
@@ -111,24 +109,41 @@ Algo asi:
 		'idReserva'   : xxx,
 		'idActividad' : xxx,
 		'hora'        : 'hh:mm:ss',
+		'horaFin'     : 'hh:mm:ss',
 		'diaSemana'   : ['L','M','X','J','V'],
 		'fecha'       : 'dd-mm-yyyy',
-		'nombre'      :'abcd'
+		'nombre'      :'abcd',
+		'monitor'     :'pepe'
 	},
 	{
 		'idReserva'   : xxx,
 		'idActividad' : xxx,
 		'hora'        : 'hh:mm:ss',
+		'horaFin'     : 'hh:mm:ss',
 		'diaSemana'   : ['L','M','X','J','V'],
 		'fecha'       : 'dd-mm-yyyy',
-		'nombre'      :'abcd'
-	},
-	{
-		'idReserva'   : xxx,
-		'idActividad' : xxx,
-		'hora'        : 'hh:mm:ss',
-		'diaSemana'   : ['L','M','X','J','V'],
-		'fecha'       : 'dd-mm-yyyy',
-		'nombre'      :'abcd'
+		'nombre'      :'abcd',
+		'monitor'     :'pepe'
 	}
 ]
+
+---------------------------------------------------------------------------------------
+
+NUEVA RESERVA SEMANAL
+
+POST: api/nuevaReservaSemanal
+
+- IdActividad
+- diaSemana {1, 2, 3, 4, 5}
+- hora  (hh:mm:ss)
+- idUsuario
+
+-----------DEVUELVE-------------
+
+si todo OK -> [idReservaSemanal = id_nueva_reserva, error = null]
+si reserva ya existente -> error = 409
+si actividad no encontrada -> error 4041
+si 	usuario no encontrado -> error = 4042
+
+Esta llamada no afecta a las reservas puntuales aunque sean de la misma actividad
+
