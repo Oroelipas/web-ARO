@@ -1,0 +1,16 @@
+INSERT INTO `monitores` (idmonitor, nombre) VALUES (5205, 'T-INNOVA ');
+INSERT INTO `monitores` (idmonitor, nombre) VALUES (6042, 'JAVIER ESCRIBANO');
+INSERT INTO `monitores` (idmonitor, nombre) VALUES (6097, 'PERU ESTEBAN');
+INSERT INTO `monitores` (idmonitor, nombre) VALUES (11930, 'JESSICA MATEO');
+INSERT INTO `monitores` (idmonitor, nombre) VALUES (11945, 'ANA ISABEL HERRANZ');
+INSERT INTO `monitores` (idmonitor, nombre) VALUES (17145, 'MIRIAM  INSAUSTI');
+INSERT INTO `monitores` (idmonitor, nombre) VALUES (18853, 'LUIS FRANCISCO BAUTISTA');
+INSERT INTO `monitores` (idmonitor, nombre) VALUES (22685, 'PEDRO LATASA');
+INSERT INTO `monitores` (idmonitor, nombre) VALUES (23166, 'HODEI SARASA');
+INSERT INTO `monitores` (idmonitor, nombre) VALUES (23362, 'GABRIELLA  DE RINALDIS');
+INSERT INTO `monitores` (idmonitor, nombre) VALUES (23596, 'IRANZU DEL VALLE');
+INSERT INTO `monitores` (idmonitor, nombre) VALUES (24197, 'JUAN JOSE ARMAÑANZAS');
+INSERT INTO `monitores` (idmonitor, nombre) VALUES (24280, 'RICARDO ARIZCUREN');
+INSERT INTO `monitores` (idmonitor, nombre) VALUES (24389, 'SEDENA ');
+INSERT INTO `monitores` (idmonitor, nombre) VALUES (25516, 'IRATI DEL VALLE');
+INSERT INTO `monitores` (idmonitor, nombre) VALUES (26238, 'LEYRE FERNANDEZ');
