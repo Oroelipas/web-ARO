@@ -6,7 +6,7 @@ POST: api/nuevousuario
 - email
 - idCarrera 
 - password 
-- fNacimiento (dd-mm-yyyy)
+- fNacimiento (yyyy-mm-dd)
 - sexo (masculino / femenino)
 
 -----------DEVUELVE-------------
@@ -57,7 +57,7 @@ RESERVA ACTIVIDAD:
 POST: api/reservar
 
 - IdActividad
-- fecha (dd-mm-yyyy)
+- fecha (yyyy-mm-dd)
 - hora  (hh:mm:ss)
 - idUsuario
 
@@ -111,7 +111,7 @@ Algo asi:
 		'hora'        : 'hh:mm:ss',
 		'horaFin'     : 'hh:mm:ss',
 		'diaSemana'   : ['L','M','X','J','V'],
-		'fecha'       : 'dd-mm-yyyy',
+		'fecha'       : 'yyyy-mm-dd',
 		'nombre'      :'abcd',
 		'monitor'     :'pepe'
 	},
@@ -121,7 +121,7 @@ Algo asi:
 		'hora'        : 'hh:mm:ss',
 		'horaFin'     : 'hh:mm:ss',
 		'diaSemana'   : ['L','M','X','J','V'],
-		'fecha'       : 'dd-mm-yyyy',
+		'fecha'       : 'yyyy-mm-dd',
 		'nombre'      :'abcd',
 		'monitor'     :'pepe'
 	}

@@ -34,7 +34,6 @@ function reservar(){
 	$idUser = $_POST["idUsuario"];
 
 	$diaSemana =  diaSemana(date("w", strtotime($fecha)));
-	$fecha =  date("Y-m-d", strtotime($fecha));
 
 	// Checkear que la reserva no esta hecha
 	$query = "SELECT * from reservas WHERE idusuario = ? and idactividad = ?  and fecha = ? and hora = ? and diasemana = ?";
