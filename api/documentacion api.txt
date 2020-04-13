@@ -40,7 +40,7 @@ si login incorrecto -> error = 404
 
 ----------------------------------------------------------------------------------
 
-ACTIVIDADE:
+ACTIVIDADES:
 
 GET: api/actividades (provisional, después será a la web de la uni)
 
@@ -195,3 +195,29 @@ Algo asi:
 ]
 
 ---------------------------------------------------------------------------------------
+
+GET SEND PUSH NOTIFICATIONS:
+
+GET: api/sendPushNotifications
+
+-----------DEVUELVE-------------
+
+{
+	'date' => yyyy-mm-dd,
+ 	'interval' => 'from hh:mm:ss to hh+1:mm:ss (not included)',
+  	'numPushSent' => X,
+   	'numErrors' => X;
+}
+
+---------------------------------------------------------------------------------------
+
+POST ACTUALIZAR TOKENFB:
+
+POST: api/actualizarTokenFB
+
+- idUsuario
+- tokenFB
+
+-----------DEVUELVE-------------
+
+DIRECTAMENTE EL OUTPUT POR DEFECTO, YA QUE NO LO LLEGAMOS A PROCESAR

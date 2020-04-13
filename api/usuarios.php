@@ -36,6 +36,18 @@ function nuevoUsuario(){
 
 }
 
+function actualizarTokenFB(){
+
+	$db = new Conexion();
+
+	$idusuario = $_POST["idUsuario"];
+	$tokenFB = $_POST["tokenFB"];
+
+	$query = "UPDATE usuarios SET tokenFB = ? WHERE idusuario = ?";
+	$result = $db->executeSql($query, [$tokenFB, $idusuario]);
+
+	echo json_encode($result,  JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+}
 
 function login(){
 

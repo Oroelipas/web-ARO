@@ -4,8 +4,8 @@ include "carreras.php";
 include "usuarios.php";
 include "reservas.php";
 include "actividades.php";
-include "fcm.php"
-include "push.php"
+include "fcm.php";
+include "push.php";
 
 session_start();
 
@@ -64,10 +64,16 @@ switch($url){
             misReservasSemanales();
         }        
         break;
-    case "sendPushNotifications"
-        if($verb == "POST"){
+    case "sendpushnotifications":
+        if($verb == "GET"){
         	sendPushNotifications();
         }
+        break;
+    case "actualizartokenfb":
+        if($verb == "POST"){
+        	actualizarTokenFB();
+        }
+        break;
     default:
         echo "LLamada incorrecta";
 }

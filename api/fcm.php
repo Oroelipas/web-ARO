@@ -2,8 +2,8 @@
 
 class FirebaseCM {
 
-	public function notifyUser($tokenFCM, $nombreActicvidad, $horaActividad) {
-
+	public function notifyUser($tokenFCM, $nombreActividad, $horaActividad) {
+		
 		define('FIREBASE_API_KEY', 'AAAAqkSH2XU:APA91bHWe0wVzfNK6b95MsbgrtTGZbgFfBpm4PrKqUYKgw_yZd6o-iFX5wV43LpIZEZdcmD55V_kMKk9of7JVsCHmfyQxASYb4jd2RnbhNRZiTU9WMNT-RhEXUisTvWVpWqQ2ISNmVMS');
 
 		$url = 'https://fcm.googleapis.com/fcm/send';
@@ -21,24 +21,28 @@ class FirebaseCM {
 		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 
 		$push = array(
-			'title' => "UpnaDepor",
-			'message' => "La actividad '$nombreActicvidad' comienza a las '$horaActividad'",
+			'title' => "Recordatorio",
+			'message' => "La actividad ".$nombreActividad." comienza a las ".$horaActividad,
 			null
 		);
 
 
 		$fields = array(
-			'registration_ids' => $tokenFCM,
-			'data' => $push)
+			'registration_ids' => array (
+				$tokenFCM
+			),
+			'data' => $push
+		);
 
 		curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($fields));
 
 		$result = curl_exec($ch);
 
 		if ($result == FALSE) {
+			echo "Error enviando notificación push\n";
 			return -1;
 		} else {
-			curl_close($ch)
+			curl_close($ch);
 			return $result;
 		}
 	}
