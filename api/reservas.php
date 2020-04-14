@@ -135,8 +135,6 @@ function nuevaReservaSemanal(){
 	$hora = $_POST["hora"];
 	$idUser = $_POST["idUsuario"];
 
-	$diaSemana =  diaSemana($diaSemana); // numero a Char
-
 	// Checkear que la reserva no esta hecha
 	$query = "SELECT * from reservas_programadas WHERE idusuario = ? and idactividad = ? and hora = ? and diasemana = ?";
 	$result = $db->executeSql($query, [$idUser, $idActividad, $hora, $diaSemana]);
