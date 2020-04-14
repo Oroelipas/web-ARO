@@ -20,9 +20,10 @@ class FirebaseCM {
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 
+		$porciones = explode(":", $horaActividad);
 		$push = array(
 			'title' => "Recordatorio",
-			'message' => "La actividad ".$nombreActividad." comienza a las ".$horaActividad,
+			'message' => "La actividad ".$nombreActividad." comienza a las ".$porciones[0].":".$porciones[1],
 			null
 		);
 
