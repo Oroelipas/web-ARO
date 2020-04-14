@@ -35,9 +35,9 @@ function sendPushNotifications(){
         	break;
 	}
 
-	$horaActual = date_format($fecha, "H:i:s");
-	$horaActualMas1 = date_format($fecha->add(new DateInterval('PT1H')), "H:i:s");
-	$horaActualMas2 = date_format($fecha->add(new DateInterval('PT1H')), "H:i:s");
+	$horaActual = date_format($fecha->sub(new DateInterval('PT1S')), "H:i:s"); 		// Necesario quitar 1s para calibrar las horas en punto
+	$horaActualMas1 = date_format($fecha->add(new DateInterval('PT1H')), "H:i:s"); 	// actual + 1h
+	$horaActualMas2 = date_format($fecha->add(new DateInterval('PT1H')), "H:i:s"); 	// actual + 2h
 
 	$numPushSent = 0;
 	$numErrors = 0;
