@@ -134,7 +134,7 @@ NUEVA RESERVA SEMANAL
 POST: api/nuevaReservaSemanal
 
 - IdActividad
-- diaSemana {1, 2, 3, 4, 5}
+- diaSemana {"L","M","X","J","V"}
 - hora  (hh:mm:ss)
 - idUsuario
 
