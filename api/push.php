@@ -7,9 +7,12 @@ function sendPushNotifications(){
 
 	$timeZone = new DateTimeZone('Europe/Madrid');
 	$fecha = date_create(NULL, $timeZone);
+	
 	$fechaActual = date_format($fecha, "Y-m-d");
-
 	$diaSemanaActual = date_format($fecha, "N");
+	
+	$hActual = date_format($fecha, "H");
+	$mActual = date_format($fecha, "i");
 
 	switch ($diaSemanaActual) {
     	case 1:
@@ -35,7 +38,8 @@ function sendPushNotifications(){
         	break;
 	}
 
-	$horaActual = date_format($fecha->sub(new DateInterval('PT1S')), "H:i:s"); 		// Necesario quitar 1s para calibrar las horas en punto
+	// Tenemos que asegurar el intervalo XX+1:XX:00 <= reserva < XX+2:XX:00, siendo XX:XX:00 la hora actual
+	$horaActual = date_format($fecha->setTime($hActual, $mActual, 0), "H:i:s");		// Aseguramos que los segundos están a 0
 	$horaActualMas1 = date_format($fecha->add(new DateInterval('PT1H')), "H:i:s"); 	// actual + 1h
 	$horaActualMas2 = date_format($fecha->add(new DateInterval('PT1H')), "H:i:s"); 	// actual + 2h
 
