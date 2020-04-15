@@ -42,6 +42,8 @@ function sendPushNotifications(){
 	$numPushSent = 0;
 	$numErrors = 0;
 
+	$tipoNotificacion = 1; // De ahora en adelante enviamos notificaciones de tipo 1 con FCM
+
 	// Obtenemos las reservas no recurrentes en menos de 2 horas
 	$query = "SELECT * from reservas WHERE fecha = ? and hora >= ? and hora < ?";
 	$reservas = $db->executeSql($query, [$fechaActual, $horaActualMas1, $horaActualMas2]);
@@ -74,7 +76,7 @@ function sendPushNotifications(){
 						$user = (array) $user;
 
 						// Notificamos al usuario a través de Firebase Cloud Messaging
-						if($firebaseCM->notifyUser($user["tokenFB"], $actividad["nombre"], $actividad["hora"]) == -1) {
+						if($firebaseCM->notifyUser($tipoNotificacion, $user["tokenFB"], $actividad["nombre"], $actividad["hora"], -1) == -1) {
 							// No se ha podido enviar correctamente la notificación
 							$numErrors = $numErrors + 1;
 						} else {
@@ -86,6 +88,8 @@ function sendPushNotifications(){
 			}
 		}
 	}
+
+	$tipoNotificacion = 2; // De ahora en adelante enviamos notificaciones de tipo 2 con FCM
 
 	// Obtenemos las reservas recurrentes en menos de 2 horas
 	$query = "SELECT * from reservas_programadas WHERE diasemana = ? and hora >= ? and hora < ?";
@@ -119,7 +123,7 @@ function sendPushNotifications(){
 						$user = (array) $user;
 
 						// Notificamos al usuario a través de Firebase Cloud Messaging
-						if($firebaseCM->notifyUser($user["tokenFB"], $actividad["nombre"], $actividad["hora"]) == -1) {
+						if($firebaseCM->notifyUser($tipoNotificacion, $user["tokenFB"], $actividad["nombre"], $actividad["hora"], $reserva["idreservaprogramada"]) == -1) {
 							// No se ha podido enviar correctamente la notificación
 							$numErrors = $numErrors + 1;
 						} else {
@@ -131,6 +135,15 @@ function sendPushNotifications(){
 			}
 		}
 	}
+
+	/*
+	$token = "fQLLh7sETIiroKuPU7Szbv:APA91bFBgkSozhMgC8NKSTRTG_wOr4_gDClqvPzcP8cfPvRb-qexPFf7MXRs813PuiMYhwmWAP-Tp4dEGWP2MTpZaBeu8HW7jLTDC4Rl_oRp3RucJTm7oOZltrVsObv0gx6gGWWI9HSv";
+	
+	$firebaseCM->notifyUser($tipoNotificacion, $token, "Prueba", "00:00:00", 20);
+
+	$tipoNotificacion = 1;
+	$firebaseCM->notifyUser($tipoNotificacion, $token, "Prueba", "00:00:00", -1);
+	*/
 
 	$result = ["date" => $fechaActual, "time" => $horaActual, "interval" => "from $horaActualMas1 to $horaActualMas2 (not included)","numPushSent" => $numPushSent, "numErrors" => $numErrors];
 	echo json_encode($result,  JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);

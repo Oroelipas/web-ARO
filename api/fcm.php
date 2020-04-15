@@ -2,7 +2,7 @@
 
 class FirebaseCM {
 
-	public function notifyUser($tokenFCM, $nombreActividad, $horaActividad) {
+	public function notifyUser($tipoNotificacion, $tokenFCM, $nombreActividad, $horaActividad, $idReservaProgramada) {
 		
 		define('FIREBASE_API_KEY', 'AAAAqkSH2XU:APA91bHWe0wVzfNK6b95MsbgrtTGZbgFfBpm4PrKqUYKgw_yZd6o-iFX5wV43LpIZEZdcmD55V_kMKk9of7JVsCHmfyQxASYb4jd2RnbhNRZiTU9WMNT-RhEXUisTvWVpWqQ2ISNmVMS');
 
@@ -21,12 +21,25 @@ class FirebaseCM {
 		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 
 		$porciones = explode(":", $horaActividad);
-		$push = array(
-			'title' => "Recordatorio",
-			'message' => "La actividad ".$nombreActividad." comienza a las ".$porciones[0].":".$porciones[1],
-			null
-		);
 
+		switch($tipoNotificacion){
+
+			case 1:
+				$title = "Aviso de actividad";
+				$message = "La actividad ".$nombreActividad." comienza a las ".$porciones[0].":".$porciones[1];
+				break;
+
+			case 2:
+				$title = "Reserva programada";
+				$message = "¿Deseas reservar plaza para ".$nombreActividad." a las ".$porciones[0].":".$porciones[1]."?";
+				break;
+		}
+
+		$push = array(
+			'title' => $title,
+			'message' => $message,
+			'idReservaProgramada' => $idReservaProgramada
+		);
 
 		$fields = array(
 			'registration_ids' => array (
