@@ -226,4 +226,61 @@ function misReservasSemanales(){
 
 }
 
+function confirmarRecordatorioSemanal(){
+
+	$db = new Conexion();
+
+	$idReservaSemanal = $_POST["idReservaSemanal"]; // id de la reserva semanal (programada o recurrente) que queremos convertir en reserva
+
+	$idReserva = null;
+	$timeZone = new DateTimeZone('Europe/Madrid');
+	// Obtenemos la fecha de mañana en el formato de la BD
+	$fecha = date_format(date_create(NULL, $timeZone)->add(new DateInterval('P1D')), "Y-m-d");
+
+	// Checkear que existe la reserva programada, obtener su información
+	$query = "SELECT * from reservas_programadas WHERE idreservaprogramada = ?";
+	$result = $db->executeSql($query, [$idReservaSemanal]);
+	if(count($result) == 0){
+		// No existe esa reserva programada
+		$result = ["error" => 404, "idReserva" => $idReserva, "fecha" => $fecha];
+		echo json_encode($result,  JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+		return;		
+	}
+
+	foreach ($result as $indice => $recordatorio) {
+
+		$recordatorio = (array) $recordatorio;
+
+		$timeZone = new DateTimeZone('Europe/Madrid');
+		// Obtenemos la fecha de mañana en el formato de la BD
+		$fecha = date_format(date_create(NULL, $timeZone)->add(new DateInterval('P1D')), "Y-m-d");
+
+		$idUser = $recordatorio["idusuario"];
+		$idActividad = $recordatorio["idactividad"];
+		$hora = $recordatorio["hora"];
+		$diaSemana = $recordatorio["diasemana"];
+
+		// Checkear que la reserva no está hecha (pura prevención, no debería ocurrir si las notificaciones se eliminan correctamente en el dispositivo una vez se clicka en RESERVAR)
+		$query = "SELECT * from reservas WHERE idusuario = ? and idactividad = ?  and fecha = ? and hora = ? and diasemana = ?";
+		$result = $db->executeSql($query, [$idUser, $idActividad, $fecha, $hora, $diaSemana]);
+		if(count($result) > 0){
+			// La reserva ya existe
+			$result = ["error" => 409, "idReserva" => $idReserva, "fecha" => $fecha];
+			echo json_encode($result,  JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+			return;
+		}
+
+		/* Realizamos la reserva */
+		
+		$query = "INSERT INTO `reservas` (idusuario, idactividad, fecha, hora, diasemana) VALUES (".$idUser.", ".$idActividad.",'".$fecha."','".$hora."','".$diaSemana."');";
+		$db->executeSql($query);
+		
+		$idReserva = $db->lastInsertId();
+
+	}
+
+	$result = ["error" => null, "idReserva" => $idReserva, "fecha" => $fecha];
+	echo json_encode($result,  JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+}
+
 ?>

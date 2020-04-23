@@ -74,6 +74,11 @@ switch($url){
         	actualizarTokenFB();
         }
         break;
+    case "confirmarrecordatoriosemanal":
+        if($verb == "POST"){
+        	confirmarRecordatorioSemanal();
+        }
+        break;
     default:
         echo "LLamada incorrecta";
 }

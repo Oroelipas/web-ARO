@@ -2,7 +2,7 @@
 
 class FirebaseCM {
 
-	public function notifyUser($tipoNotificacion, $tokenFCM, $nombreActividad, $horaActividad, $idReservaProgramada) {
+	public function notifyUser($tipoNotificacion, $tokenFB, $nombreActividad, $horaActividad, $idReservaProgramada) {
 		
 		define('FIREBASE_API_KEY', 'AAAAqkSH2XU:APA91bHWe0wVzfNK6b95MsbgrtTGZbgFfBpm4PrKqUYKgw_yZd6o-iFX5wV43LpIZEZdcmD55V_kMKk9of7JVsCHmfyQxASYb4jd2RnbhNRZiTU9WMNT-RhEXUisTvWVpWqQ2ISNmVMS');
 
@@ -43,7 +43,7 @@ class FirebaseCM {
 
 		$fields = array(
 			'registration_ids' => array (
-				$tokenFCM
+				$tokenFB
 			),
 			'data' => $push
 		);
