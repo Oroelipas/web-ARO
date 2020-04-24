@@ -1,6 +1,5 @@
 <?php
 
-
 function diaSemana($dia){
 	switch ($dia) {
 		case '1':
@@ -86,7 +85,6 @@ function anular(){
 	$IdReserva = $_POST["idReserva"];
 	$idUser = $_POST["idUsuario"];
 
-
 	// Checkear que la reserva exista y sea de ese usuario
 	$query = "SELECT * from reservas WHERE idReserva = ? and idUsuario = ?";
 	$result = $db->executeSql($query, [$IdReserva, $idUser]);
@@ -169,7 +167,6 @@ function nuevaReservaSemanal(){
 
 	$query = "INSERT INTO `reservas_programadas` (idusuario, idactividad, hora, diasemana) VALUES (".$idUser.", ".$idActividad.",'".$hora."','".$diaSemana."');";
 
-
 	$db->executeSql($query);
 
 	$idReserva = $db->lastInsertId();
@@ -187,7 +184,6 @@ function anularReservaSemanal(){
 	$IdReserva = $_POST["idReservaSemanal"];
 	$idUser = $_POST["idUsuario"];
 
-
 	// Checkear que la reserva exista y sea de ese usuario
 	$query = "SELECT * from reservas_programadas WHERE idreservaprogramada = ? and idusuario = ?";
 	$result = $db->executeSql($query, [$IdReserva, $idUser]);
@@ -196,7 +192,6 @@ function anularReservaSemanal(){
 		echo json_encode($result,  JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
 		return;
 	}
-
 
 	$query = "DELETE FROM reservas_programadas WHERE idreservaprogramada = ? and idusuario = ?";
 	$db->executeSql($query, [$IdReserva, $idUser]);
@@ -235,6 +230,8 @@ function confirmarRecordatorioSemanal(){
 	$idReservaSemanal = $_POST["idReservaSemanal"]; // id de la reserva semanal (programada o recurrente) que queremos convertir en reserva
 
 	$idReserva = null;
+	$nombreAct = null;
+	
 	$timeZone = new DateTimeZone('Europe/Madrid');
 	// Obtenemos la fecha de mañana en el formato de la BD
 	$fecha = date_format(date_create(NULL, $timeZone)->add(new DateInterval('P1D')), "Y-m-d");
@@ -244,7 +241,7 @@ function confirmarRecordatorioSemanal(){
 	$result = $db->executeSql($query, [$idReservaSemanal]);
 	if(count($result) == 0){
 		// No existe esa reserva programada
-		$result = ["error" => 404, "idReserva" => $idReserva, "fecha" => $fecha];
+		$result = ["error" => 404, "idReserva" => $idReserva, "nombreAct" => $nombreAct, "fecha" => $fecha];
 		echo json_encode($result,  JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
 		return;		
 	}
@@ -253,35 +250,71 @@ function confirmarRecordatorioSemanal(){
 
 		$recordatorio = (array) $recordatorio;
 
-		$timeZone = new DateTimeZone('Europe/Madrid');
-		// Obtenemos la fecha de mañana en el formato de la BD
-		$fecha = date_format(date_create(NULL, $timeZone)->add(new DateInterval('P1D')), "Y-m-d");
-
 		$idUser = $recordatorio["idusuario"];
 		$idActividad = $recordatorio["idactividad"];
 		$hora = $recordatorio["hora"];
-		$diaSemana = $recordatorio["diasemana"];
+		$diaSemanaR = $recordatorio["diasemana"];
+
+		$timeZone = new DateTimeZone('Europe/Madrid');
+		// Obtenemos la fecha de MAÑANA en el formato de la BD
+		$fecha = date_format(date_create(NULL, $timeZone)->add(new DateInterval('P1D')), "Y-m-d");
+		// Obtenemos el día de la semana de MAÑANA
+		$numDiaSemana = date_format($fecha, "N");
+		switch($numDiaSemana){
+	    	case 1:
+	        	$diaSemana = "L";
+	        	break;
+	    	case 2:
+	        	$diaSemana = "M";
+	        	break;
+	    	case 3:
+	       	 	$diaSemana = "X";
+	        	break;
+	        case 4:
+	       	 	$diaSemana = "J";
+	        	break;
+	        case 5:
+	       	 	$diaSemana = "V";
+	        	break;
+	        case 6:
+	       	 	$diaSemana = "S";
+	        	break;
+	        case 7:
+	       	 	$diaSemana = "D";
+	        	break;
+		}
+
+		if ($diaSemana != $diaSemanaR) {
+			// Significa que, a pesar de haber recibido la notificación con un día de antelación, el usuario está reservando el propio día que tiene lugar la actividad semanal
+			$fecha = date_format(date_create(NULL, $timeZone)->sub(new DateInterval('P1D')), "Y-m-d"); // Debemos corregir el valor de la variable $fecha
+		}
+
+		// Obtener los datos de la actividad a reservar
+		$query = "SELECT * from actividades WHERE idactividad = ? and hora = ? and diasemana = ?";
+		$actividad = $db->executeSql($query, [$idActividad, $hora, $diaSemanaR]);
+		foreach ($actividad as $indice => $datos_actividad) {
+			$datos_actividad = (array) $datos_actividad;
+			$nombreAct = $datos_actividad["nombre"];
+		}
 
 		// Checkear que la reserva no está hecha (pura prevención, no debería ocurrir si las notificaciones se eliminan correctamente en el dispositivo una vez se clicka en RESERVAR)
 		$query = "SELECT * from reservas WHERE idusuario = ? and idactividad = ?  and fecha = ? and hora = ? and diasemana = ?";
-		$result = $db->executeSql($query, [$idUser, $idActividad, $fecha, $hora, $diaSemana]);
+		$result = $db->executeSql($query, [$idUser, $idActividad, $fecha, $hora, $diaSemanaR]);
 		if(count($result) > 0){
 			// La reserva ya existe
-			$result = ["error" => 409, "idReserva" => $idReserva, "fecha" => $fecha];
+			$result = ["error" => 409, "idReserva" => $idReserva, "nombreAct" => $nombreAct, "fecha" => $fecha];
 			echo json_encode($result,  JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
 			return;
 		}
 
 		/* Realizamos la reserva */
-		
-		$query = "INSERT INTO `reservas` (idusuario, idactividad, fecha, hora, diasemana) VALUES (".$idUser.", ".$idActividad.",'".$fecha."','".$hora."','".$diaSemana."');";
+		$query = "INSERT INTO `reservas` (idusuario, idactividad, fecha, hora, diasemana) VALUES (".$idUser.", ".$idActividad.",'".$fecha."','".$hora."','".$diaSemanaR."');";
 		$db->executeSql($query);
-		
 		$idReserva = $db->lastInsertId();
 
 	}
 
-	$result = ["error" => null, "idReserva" => $idReserva, "fecha" => $fecha];
+	$result = ["error" => null, "idReserva" => $idReserva, "nombreAct" => $nombreAct, "fecha" => $fecha];
 	echo json_encode($result,  JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
 }
 
