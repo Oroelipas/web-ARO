@@ -119,7 +119,8 @@ function misReservas(){
 			  		r.hora = a.hora and
 			  		r.diasemana = a.diasemana and 
 			  		m.idmonitor = a.idmonitor and
-			  		? < CONCAT(r.fecha, ' ', r.hora)";
+			  		? < CONCAT(r.fecha, ' ', r.hora)
+			  ORDER BY  CONCAT(r.fecha, ' ', r.hora)";
 
 	$result = $db->executeSql($query, [$idUser, $monday]);
 	echo json_encode($result,  JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
