@@ -108,7 +108,8 @@ function misReservas(){
 
 	$idUser = $_POST["idUsuario"];
 
-	$monday = date('Y-m-d', strtotime('monday this week'));
+	$friday = date('Y-m-d', strtotime('last friday'));
+	echo $friday;	
 
 	$query = "SELECT r.idReserva, a.idactividad, a.hora, a.horaFin, a.diasemana, r.fecha, a.nombre,  m.nombre as monitor
 			  FROM reservas r, actividades a, monitores m
@@ -117,10 +118,10 @@ function misReservas(){
 			  		r.hora = a.hora and
 			  		r.diasemana = a.diasemana and 
 			  		m.idmonitor = a.idmonitor and
-			  		? < CONCAT(r.fecha, ' ', r.hora)
+			  		? < r.fecha
 			  ORDER BY  CONCAT(r.fecha, ' ', r.hora)";
 
-	$result = $db->executeSql($query, [$idUser, $monday]);
+	$result = $db->executeSql($query, [$idUser, $friday]);
 	echo json_encode($result,  JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
 	return;
 
