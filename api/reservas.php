@@ -258,9 +258,12 @@ function confirmarRecordatorioSemanal(){
 
 		$timeZone = new DateTimeZone('Europe/Madrid');
 		// Obtenemos la fecha de MAÑANA en el formato de la BD
-		$fecha = date_format(date_create(NULL, $timeZone)->add(new DateInterval('P1D')), "Y-m-d");
+		$fechaNoFormat = date_create(NULL, $timeZone)->add(new DateInterval('P1D'));
+		$fecha = date_format($fechaNoFormat, "Y-m-d");
+
 		// Obtenemos el día de la semana de MAÑANA
-		$numDiaSemana = date_format($fecha, "N");
+		$numDiaSemana = date_format($fechaNoFormat, "N");
+
 		switch($numDiaSemana){
 	    	case 1:
 	        	$diaSemana = "L";

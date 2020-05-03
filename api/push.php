@@ -184,7 +184,7 @@ function sendPushNotifications(){
 		}
 	}
 
-	$result = ["date" => $fechaActual, "time" => $horaActual, "interval" => "from $horaActualMas1 to $horaActualMas2 (not included)","numPushSent" => $numPushSent, "numErrors" => $numErrors];
+	$result = ["date" => $fechaActual, "time" => $horaActual, "intervalN1" => "from $horaActualMas1 to $horaActualMas2 (not included)", "intervalN2" => "from $horaActual to $horaActualMas1 (not included)", "numPushSent" => $numPushSent, "numErrors" => $numErrors];
 	echo json_encode($result,  JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
 
 }
