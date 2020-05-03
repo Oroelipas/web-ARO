@@ -29,6 +29,11 @@ switch($url){
             login();
         }
         break;
+    case "borrarusuario":
+        if($verb == "POST"){
+            borrarUsuario();
+        }
+        break;
     case "reservar":
         if($verb == "POST"){
             reservar();

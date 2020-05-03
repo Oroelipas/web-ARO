@@ -74,4 +74,26 @@ function login(){
 	echo json_encode($result,  JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
 }
 
+function borrarUsuario(){
+
+	$db = new Conexion();
+
+	$idUser = $_POST["idUsuario"];
+
+	// Checkear que el usuario exista
+	$query = "SELECT * from usuarios WHERE idusuario = ?";
+	$result = $db->executeSql($query, [$idUser]);
+	if(count($result) == 0){
+		$result = ["error" => 404];
+		echo json_encode($result,  JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+		return;
+	}
+
+
+	$query = "DELETE FROM usuarios WHERE idusuario = ?";
+	$db->executeSql($query, [$idUser]);
+	$result = ["error" => null];
+	echo json_encode($result,  JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+}
+
 ?>

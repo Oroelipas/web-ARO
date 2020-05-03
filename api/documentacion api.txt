@@ -43,6 +43,22 @@ si login incorrecto -> error = 404
     "error": null
 }
 
+-------------------------------------------------------------------------------
+BORRAR USUARIO:
+
+POST: api/borrarusuario
+
+- idUsuario
+
+-----------DEVUELVE-------------
+
+si OK -> error = null
+si usuario no encontrado-> error = 404
+
+{
+    "error": null
+}
+
 ----------------------------------------------------------------------------------
 
 ACTIVIDADES:
