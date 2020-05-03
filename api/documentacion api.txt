@@ -15,7 +15,7 @@ si OK -> IdUser = ID usuario
 si Email usado -> error = 409
 
 {
-	'IdUser': xxx,
+	'idusuario': xxx,
 	'error' : xxx
 }
 
@@ -30,12 +30,17 @@ POST: api/login
 
 -----------DEVUELVE-------------
 
-si OK -> IdUser = ID usuario
+si OK -> datos del usuario
 si login incorrecto -> error = 404
 
 {
-	'IdUser': xxx,
-	'error' : xxx
+    "idusuario": 28,
+    "email": "eee@eee.ee",
+    "nombre": "eeeeee",
+    "nacimiento": "1998-05-16",
+    "carrera": "Derecho",
+    "sexo": "masculino",
+    "error": null
 }
 
 ----------------------------------------------------------------------------------

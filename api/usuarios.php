@@ -18,7 +18,7 @@ function nuevoUsuario(){
 	$query = "SELECT * from usuarios WHERE email = ?";
 	$result = $db->executeSql($query, [$email]);
 	if(count($result) > 0){
-		$result = ["IdUser" => null, "error" => 409];
+		$result = ["idusuario" => null, "error" => 409];
 		echo json_encode($result,  JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
 		return;
 	}
@@ -29,9 +29,7 @@ function nuevoUsuario(){
 
 	$db->executeSql($query);
 
-	$_SESSION["user"] = $db->lastInsertId();
-
-	$result = ["IdUser" => $_SESSION["user"], "error" => null];
+	$result = ["idusuario" =>  $db->lastInsertId(), "error" => null];
 	echo json_encode($result,  JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
 
 }
@@ -56,17 +54,23 @@ function login(){
 	$email = $_POST["email"];
 	$password = $_POST["password"];
 
-	$query = "SELECT idusuario, hash from usuarios WHERE email = ?";
+	$query = "SELECT u.idusuario, u.email, u.nombre, u.hash, u.nacimiento, c.nombre as carrera, u.sexo
+				FROM usuarios u, carreras c
+				WHERE u.idcarrera = c.idcarrera AND 
+					  email = ?";
+
 	$result = $db->executeSql($query, [$email]);
 	if(count($result) > 0){
 		if(password_verify($password, $result[0]->hash)){
-			$result = ["IdUser" => $result[0]->idusuario, "error" => null];
+			$result = (array)$result[0];
+			unset($result["hash"]); // no enviamos el hash de vuelta
+			$result["error"] = null;
 			echo json_encode($result,  JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
 			return;
 		}
 	}
 
-	$result = ["IdUser" => null, "error" => 404];
+	$result = ["idusuario" => null, "error" => 404];
 	echo json_encode($result,  JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
 }
 
